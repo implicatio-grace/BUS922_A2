@@ -542,6 +542,7 @@
         <button class="chip fam-chip" data-fam="SM"><span class="fsw sm"></span>Strategic mgmt &amp; M&amp;A</button>
         <button class="chip fam-chip" data-fam="LS"><span class="fsw ls"></span>Learning sciences</button>
         <button class="chip fam-chip" data-fam="KM"><span class="fsw km"></span>Knowledge mgmt</button>
+        <button class="chip fam-chip" data-fam="WHRD"><span class="fsw whrd"></span>Workforce &amp; HRD</button>
         <button class="chip fam-chip" data-fam="LSCM"><span class="fsw lscm"></span>Logistics &amp; SCM</button>
         <button class="chip fam-chip" data-fam="CSC"><span class="fsw csc"></span>Complex systems science</button>
       </div>
@@ -607,15 +608,20 @@
         <div class="hstack">
         <div class="hrow">
 
-          <!-- COLUMN 1 · THE GAP · academic warrant -->
+          <!-- COLUMN 1 · THE GAP · SME-context base (far left) -->
           <div class="hcol gapcol">
-            <div class="colhead"><span class="reg navy">The problem · the gap</span></div>
-            <div class="subhead navy">Academic warrant <span class="hint">serial-acquisition / codification</span> <button class="ibtn" data-explain="problem-nodes" aria-label="Read the explainer for the problem block" aria-expanded="false">i</button></div>
-            <div class="nodes vert" id="problemNodes"></div>
-            <div class="subhead navy" style="margin-top:20px;">The SME-context base <span class="hint">six standpoints · the empty cell</span></div>
+            <div class="colhead"><span class="reg navy">The problem · the gap</span> <span class="hint">the SME-context base</span></div>
+            <div class="subhead navy">The SME-context base <span class="hint">six standpoints · the empty cell</span></div>
             <div class="sp-intro">Twenty gate-relevant articles plus five reading-grade foils (dimmed), across six literatures &mdash; the problem base for O1. None combines serial acquisition with learning-embedded capability retention in an SME.</div>
             <div id="smeContext"></div>
-            <div class="subhead" style="color:var(--crit);">Positioning <span class="hint">imported-warrant survival</span> <button class="ibtn" data-explain="critical-nodes" aria-label="Read the explainer for the positioning block" aria-expanded="false">i</button></div>
+          </div>
+
+          <!-- COLUMN 1b · THE GAP · academic warrant + positioning -->
+          <div class="hcol gapcol">
+            <div class="colhead"><span class="reg navy">The problem · warrant &amp; positioning</span></div>
+            <div class="subhead navy">Academic warrant <span class="hint">serial-acquisition / codification</span> <button class="ibtn" data-explain="problem-nodes" aria-label="Read the explainer for the problem block" aria-expanded="false">i</button></div>
+            <div class="nodes vert" id="problemNodes"></div>
+            <div class="subhead" style="color:var(--crit);margin-top:20px;">Positioning <span class="hint">imported-warrant survival</span> <button class="ibtn" data-explain="critical-nodes" aria-label="Read the explainer for the positioning block" aria-expanded="false">i</button></div>
             <div class="nodes vert" id="criticalNodes"></div>
           </div>
 
@@ -687,9 +693,9 @@
     </div>
 
     <div class="bar">
-      <div class="gate"><span class="n" id="gateN">24</span>
-        <span class="lab"><b>journal articles clear the gate</b> &mdash; ABDC A*/A or SCImago Q1 (23 conservative; same-dataset relational pair counted once). Above the 12+ aim and &ge;10 floor.</span></div>
-      <div class="gate ft"><span class="n" id="ft50N">7</span>
+      <div class="gate"><span class="n" id="gateN">45</span>
+        <span class="lab"><b>journal articles clear the gate</b> &mdash; ABDC A*/A or SCImago Q1 (44 conservative; same-dataset relational pair counted once; incl. 4 reading-grade). Above the 12+ aim and &ge;10 floor.</span></div>
+      <div class="gate ft"><span class="n" id="ft50N">10</span>
         <span class="lab"><b>FT50</b> among them. Grey instruments are environment-scan &mdash; <b>not</b> gate-counted.</span></div>
     </div>
 
@@ -721,7 +727,7 @@
    grey sources appear (confidentiality discipline).
    ============================================================ */
 
-const META = { gate: 24, conservative: 23, ft50: 7 };
+const META = { gate: 45, conservative: 44, ft50: 10 };
 
 /* ---------- GREY SOURCES (external-anchored only) ----------
    Rendered as clickable chips inside the instrument lenses.
