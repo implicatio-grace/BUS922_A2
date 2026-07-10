@@ -184,6 +184,31 @@
   .hinge .defer{margin:13px 0 0;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:0.04em;
     text-transform:uppercase;color:color-mix(in oklch, var(--grey) 55%, var(--muted));opacity:.9;border-top:1px dashed var(--line);padding-top:11px;}
   .hinge .defer b{font-weight:500;}
+  .hinge-fig{display:inline-block;margin:11px 0 0;font-family:"JetBrains Mono",monospace;font-size:10px;
+    letter-spacing:0.06em;text-transform:uppercase;color:var(--grey);text-decoration:none;
+    border-bottom:1px solid transparent;padding-bottom:1px;transition:.14s;}
+  .hinge-fig:hover{color:var(--ink);border-color:var(--line-2);}
+  .hinge-fig .ext{opacity:.6;font-size:9px;}
+  .hinge-fig.inline{margin:0;display:inline;font-size:inherit;letter-spacing:inherit;color:var(--grey);
+    border-bottom-color:transparent;}
+  .hinge-swot{margin:12px 0 0;}
+  .hinge-swot > summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:9px;
+    padding:7px 10px;background:var(--paper);border:1px solid var(--grey);border-radius:8px;transition:.14s;}
+  .hinge-swot > summary::-webkit-details-marker{display:none;}
+  .hinge-swot > summary::marker{content:"";}
+  .hinge-swot > summary:hover{border-color:color-mix(in oklch, var(--grey) 55%, var(--ink));}
+  .hq-chips{display:inline-flex;gap:4px;}
+  .hq{width:18px;height:18px;border-radius:5px;display:grid;place-items:center;
+    font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;color:#fff;}
+  .hq.o{background:var(--navy);} .hq.w{background:var(--coral);}
+  .hq.s{background:var(--teal);} .hq.t{background:var(--coral);}
+  .hq-lab{flex:1;font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--grey);}
+  .hq-i{flex:none;width:17px;height:17px;border-radius:50%;border:1px solid var(--grey);color:var(--grey);
+    display:grid;place-items:center;font-family:Georgia,serif;font-style:italic;font-size:10px;line-height:1;}
+  .hinge-swot[open] > summary{margin-bottom:8px;border-color:color-mix(in oklch, var(--grey) 55%, var(--ink));}
+  .hinge-swot[open] .hq-i{background:var(--grey);color:#fff;border-color:var(--grey);}
+  .hinge-swot .hinge-legs{grid-template-columns:1fr;gap:7px;margin:0;}
   .triple{margin:11px 0 0;display:inline-flex;gap:9px;align-items:center;background:var(--paper);
     border:1px dashed color-mix(in oklch, var(--grey) 30%, var(--line));
     border-radius:8px;padding:8px 12px;cursor:default;}
@@ -630,18 +655,24 @@
             <div class="colhead"><span class="reg grey">The synthesis</span></div>
             <div class="hinge" data-id="hinge">
               <div class="tag">The hinge &middot; where the gap meets the design <button class="ibtn" data-explain="hinge" aria-label="Read the explainer for the synthesis" aria-expanded="false">i</button></div>
-              <!-- A2: worked TOWS 2x2 — DEFERRED to A2 (presentation stage). A1B carries only the W×O proposition below.
-                   Restore for A2 by un-commenting this block (markup preserved verbatim).
-              <div class="hinge-legs">
-                <div class="leg"><div class="k">O · opportunity</div><div class="v">PESTEL (Technological) &mdash; automation/GenAI mature enough for low-friction by-product capture; incumbents under-innovate.</div></div>
-                <div class="leg"><div class="k">W · weakness</div><div class="v">VRIO (missing O) &mdash; each acquired workforce&rsquo;s V+R+I situated knowledge is <em>not organised</em> for capture/reuse.</div></div>
-                <div class="leg"><div class="k">S · strengths</div><div class="v">VRIO &mdash; regulated customs expertise; 200+ network; repeatable acquisition capability; small-firm agility.</div></div>
-                <div class="leg"><div class="k">T · threats</div><div class="v">PESTEL + Five Forces &mdash; thin margins + rate/supplier squeeze; integrator price/scale pressure; skills scarcity + churn.</div></div>
-              </div>
-              -->
+              <!-- A2: worked TOWS 2×2 restored — SWOT quadrant legs below link to Appendix 4; the worked W×O matrix links to Appendix 5. -->
+              <details class="hinge-swot">
+                <summary aria-label="Show the four SWOT quadrants">
+                  <span class="hq-chips"><span class="hq o">O</span><span class="hq w">W</span><span class="hq s">S</span><span class="hq t">T</span></span>
+                  <span class="hq-lab">SWOT quadrants</span>
+                  <span class="hq-i">i</span>
+                </summary>
+                <div class="hinge-legs">
+                  <div class="leg"><div class="k">O · opportunity</div><div class="v">PESTEL (Technological) &mdash; automation/GenAI mature enough for low-friction by-product capture; incumbents under-innovate.</div></div>
+                  <div class="leg"><div class="k">W · weakness</div><div class="v">VRIO (missing O) &mdash; each acquired workforce&rsquo;s V+R+I situated knowledge is <em>not organised</em> for capture/reuse.</div></div>
+                  <div class="leg"><div class="k">S · strengths</div><div class="v">VRIO &mdash; regulated customs expertise; 200+ network; repeatable acquisition capability; small-firm agility.</div></div>
+                  <div class="leg"><div class="k">T · threats</div><div class="v">PESTEL + Five Forces &mdash; thin margins + rate/supplier squeeze; integrator price/scale pressure; skills scarcity + churn.</div></div>
+                </div>
+              </details>
+              <a class="hinge-fig" href="appendix-4-swot.html">View full figure <span class="ext">&#8599;</span></a>
               <p class="gap">&ldquo;Articulating an operational problem could deepen a learner&rsquo;s capability and produce a reusable artefact at once &mdash; <em>but in an acquired workforce, the two aren&rsquo;t yet designed as a single act.</em>&rdquo;</p>
               <p class="note">The W&times;O proposition the study investigates &mdash; a claim about <em>form</em> (not yet designed as one act), not about the partner&rsquo;s data. Five Forces says <em>why</em>; VRIO says <em>what</em>; PESTEL says <em>why now</em>.</p>
-              <p class="defer">Full TOWS analysis &mdash; the worked W&times;O matrix (SO &middot; ST &middot; WO &middot; WT) &mdash; developed at <b>A2</b>.</p>
+              <p class="defer">Worked TOWS matrix &mdash; SO &middot; ST &middot; WO &middot; WT, converging on <b>WO</b> &mdash; <a class="hinge-fig inline" href="appendix-5-tows.html">View full figure <span class="ext">&#8599;</span></a></p>
             </div>
             <div class="hingectx">
               <div class="subhead"><span class="reg" style="background:#eee;color:var(--muted)">Context framing</span> <span class="hint">why act now</span> <button class="ibtn" data-explain="postA3-nodes" aria-label="Read the explainer for the context-framing chip" aria-expanded="false">i</button></div>
