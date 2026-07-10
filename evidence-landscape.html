@@ -612,7 +612,7 @@
           <div class="hcol gapcol">
             <div class="colhead"><span class="reg navy">The problem · the gap</span> <span class="hint">the SME-context base</span></div>
             <div class="subhead navy">The SME-context base <span class="hint">six standpoints · the empty cell</span></div>
-            <div class="sp-intro">Twenty gate-relevant articles plus five reading-grade foils (dimmed), across six literatures &mdash; the problem base for O1. None combines serial acquisition with learning-embedded capability retention in an SME.</div>
+            <div class="sp-intro">Twenty gate-relevant articles plus five reading-grade counterpoints (dimmed), across six literatures &mdash; the problem base for O1. None combines serial acquisition with learning-embedded capability retention in an SME.</div>
             <div id="smeContext"></div>
           </div>
 
@@ -815,7 +815,7 @@ const PROBLEM = [
 
 /* ---------- PROBLEM REGISTER · SME-context base (B1 compile v1.1) ----------
    ~25 nodes across six standpoints (S-1…S-7). 20 extraction-grade + 5 reading-grade
-   foils (dim:true · prov:'drawn-not-extracted'). v5 keys (standpoint / prov /
+   counterpoints (dim:true · prov:'pending-close-read'). v5 keys (standpoint / prov /
    cluster_primary / confidence_code / tension_flag / convergence_ids) render via
    the deepened show() panel + the clickable ⚠. Grouped in the gap column by STANDPOINTS. */
 const SMECTX = [
@@ -914,20 +914,20 @@ const SMECTX = [
     role:'The closest-available SME-capability review (70 studies): small firms compete from <b>resource scarcity</b>, so their edge comes from capabilities they <b>build</b>, not resources they buy. Its corpus <b>containing no freight and no retention paper is itself the S-5 absence</b>.' },
   { id:'bernal', ref:'Bernal et al.', yr:2002, register:'problem', gate:true, ft50:false, dots:3, dim:true,
     standing:'IJEBR — ABDC A · Q1 · gate ✓ (B14; PDF masthead-confirmed)', venue:'Int. J. Entrepreneurial Behaviour &amp; Research',
-    standpoint:'S-5', prov:'drawn-not-extracted', cluster_primary:'problem-gap',
-    confidence_code:'Single source', tension_flag:'⚠ CF4 &mdash; small freight forwarders, but studied on INTER-firm network collaboration (&ldquo;fear of sharing valued corporate information&rdquo; between competitors), NOT intra-firm retention. Possible genuine tension with the proposed design &mdash; carry as a design consideration. Standing VERIFIED B14 (DOI 10.1108/13552550210448348); still reading-grade &mdash; not yet extracted.', tension_hard:true,
+    standpoint:'S-5', prov:'pending-close-read', cluster_primary:'problem-gap',
+    confidence_code:'Single source', tension_flag:'⚠ CF4 &mdash; small freight forwarders, but studied on INTER-firm network collaboration (&ldquo;fear of sharing valued corporate information&rdquo; between competitors), NOT intra-firm retention. Possible genuine tension with the proposed design &mdash; carry as a design consideration. Standing VERIFIED B14 (DOI 10.1108/13552550210448348); still reading-grade &mdash; not yet close-read.', tension_hard:true,
     convergence_ids:[], touch:[],
-    role:'<b>Reading-grade (extract before A3 weight).</b> An empirical case of a <b>small-freight-forwarder network</b> &mdash; the closest firm-type match &mdash; but on inter-firm collaboration among competitors, not within-firm retention. Sharpens the boundary of the empty cell.' },
+    role:'<b>Reading-grade (close-read before A3 weight).</b> An empirical case of a <b>small-freight-forwarder network</b> &mdash; the closest firm-type match &mdash; but on inter-firm collaboration among competitors, not within-firm retention. Sharpens the boundary of the empty cell.' },
   { id:'gekara', ref:'Gekara &amp; Nguyen', yr:2018, register:'problem', gate:true, ft50:false, dots:3, dim:true,
     standing:'NTWE — ABDC A · gate ✓ (B14; NTWE 33:3)', venue:'New Technology, Work and Employment',
-    standpoint:'S-5', prov:'drawn-not-extracted', cluster_primary:'problem-gap',
-    confidence_code:'Indirect evidence', tension_flag:'Container TERMINALS / large operators, automation skills-shift &mdash; not forwarding, not SMEs. Frames AU context only. Standing VERIFIED B14 (NTWE 33:3, DOI 10.1111/ntwe.12118); still reading-grade &mdash; not yet extracted.',
+    standpoint:'S-5', prov:'pending-close-read', cluster_primary:'problem-gap',
+    confidence_code:'Indirect evidence', tension_flag:'Container TERMINALS / large operators, automation skills-shift &mdash; not forwarding, not SMEs. Frames AU context only. Standing VERIFIED B14 (NTWE 33:3, DOI 10.1111/ntwe.12118); still reading-grade &mdash; not yet close-read.',
     convergence_ids:[], touch:[],
     role:'<b>Reading-grade.</b> Automation is reshaping AU logistics skills &mdash; but at container terminals/large operators, not freight forwarders. Frames the Australian technology-and-workforce context, adjacent to the cell.' },
   { id:'thai', ref:'Thai et al.', yr:2011, register:'problem', gate:true, ft50:false, dots:3, dim:true,
     standing:'APJML — ABDC A · Q1 · IF 7.53 · gate ✓ (B14)', venue:'Asia Pacific J. Marketing and Logistics',
-    standpoint:'S-5', prov:'drawn-not-extracted', cluster_primary:'problem-gap',
-    confidence_code:'Single source', tension_flag:'⚠ Relational skills #1–3 SUPPORT the situated-knowledge framing, but &ldquo;on-the-job learning too constrained within daily job scope&rdquo; COMPLICATES the work-embedded premise &mdash; meet head-on. PD prescription is industry–university collaboration. Standing VERIFIED B14 (ISSN 1355-5855); still reading-grade &mdash; not yet extracted.',
+    standpoint:'S-5', prov:'pending-close-read', cluster_primary:'problem-gap',
+    confidence_code:'Single source', tension_flag:'⚠ Relational skills #1–3 SUPPORT the situated-knowledge framing, but &ldquo;on-the-job learning too constrained within daily job scope&rdquo; COMPLICATES the work-embedded premise &mdash; meet head-on. PD prescription is industry–university collaboration. Standing VERIFIED B14 (ISSN 1355-5855); still reading-grade &mdash; not yet close-read.',
     convergence_ids:[], touch:[],
     role:'<b>Reading-grade.</b> AU logistics professionals rank <b>relational skills</b> highest (supports situated knowledge) &mdash; but flag that daily job scope constrains on-the-job learning, a tension the design must answer rather than assume away.' },
 
@@ -940,14 +940,14 @@ const SMECTX = [
     role:'The <b>novelty warrant.</b> Inside a ~28,500-emp firm, the knowledge people value most is tacit &ldquo;knowing&rdquo; (and &ldquo;knowing who to call&rdquo;); formal capture-and-codify <b>fails</b>, informal side-by-side practice works. The firm stops at &ldquo;create the conditions&rdquo; &mdash; so <b>designing capture as a by-product of the work is the un-taken step</b>.' },
   { id:'levallet', ref:'Levallet &amp; Chan', yr:2019, register:'problem', gate:true, ft50:false, dots:3, dim:true,
     standing:'JKM — ABDC A · Q1 · IF 11.65 · gate ✓ (B14)', venue:'Journal of Knowledge Management',
-    standpoint:'S-6', prov:'drawn-not-extracted', cluster_primary:'problem-gap',
-    confidence_code:'Direct evidence', tension_flag:'THE one gate-eligible foil &mdash; now B14-confirmed A·Q1 (gate ✓); still reading-grade, extract before A3 weight. Canadian federal public service; the ~500-emp figure applies to GovHR only (GovHealth size unstated); qualitative/propositional. Positioning, not SME/freight evidence.',
+    standpoint:'S-6', prov:'pending-close-read', cluster_primary:'problem-gap',
+    confidence_code:'Direct evidence', tension_flag:'THE one gate-eligible counterpoint &mdash; now B14-confirmed A·Q1 (gate ✓); still reading-grade, close-read before A3 weight. Canadian federal public service; the ~500-emp figure applies to GovHR only (GovHealth size unstated); qualitative/propositional. Positioning, not SME/freight evidence.',
     convergence_ids:[], touch:[],
-    role:'<b>Reading-grade (gate-eligible once extracted).</b> The foil in one line: knowledge <b>captured and stored can still be lost</b> if it is not converted from individual to social knowledge and reused &mdash; codification-alone leaks; effective retention is <b>hybrid</b>, and departing experts often run out of time to convert.' },
+    role:'<b>Reading-grade (gate-eligible once close-read).</b> The counterpoint in one line: knowledge <b>captured and stored can still be lost</b> if it is not converted from individual to social knowledge and reused &mdash; codification-alone leaks; effective retention is <b>hybrid</b>, and departing experts often run out of time to convert.' },
   { id:'dewah', ref:'Dewah &amp; Mutula', yr:2016, register:'problem', gate:false, ft50:false, dots:0, dim:true,
-    standing:'Information Development — Not listed · SJR 0.536 · gate ✗ (B14; foil, neutral)', venue:'Information Development',
-    standpoint:'S-6', prov:'drawn-not-extracted', cluster_primary:'problem-gap',
-    confidence_code:'Single source', tension_flag:'Public-sector sub-Saharan Africa, literature survey &mdash; names the conventional set, doesn&rsquo;t evidence an AU freight SME. Foil-by-naming only. Standing VERIFIED B14 (Not listed / SJR 0.536 &mdash; foil, gate-neutral by design).',
+    standing:'Information Development — Not listed · SJR 0.536 · gate ✗ (B14; counterpoint, neutral)', venue:'Information Development',
+    standpoint:'S-6', prov:'pending-close-read', cluster_primary:'problem-gap',
+    confidence_code:'Single source', tension_flag:'Public-sector sub-Saharan Africa, literature survey &mdash; names the conventional set, doesn&rsquo;t evidence an AU freight SME. Counterpoint-by-naming only. Standing VERIFIED B14 (Not listed / SJR 0.536 &mdash; counterpoint, gate-neutral by design).',
     convergence_ids:[], touch:[],
     role:'<b>Reading-grade.</b> Names the conventional retention set (codification, personalisation, training, mentoring, repositories) and the lean-firm conditions that undermine it (weak incentives, thin tech, low commitment). The status quo the design departs from.' },
 
@@ -1300,7 +1300,7 @@ function show(n){
     + (n.family ? `<div class="dislab">${famTag(n)}</div>` : '');
   pBody.innerHTML = `<p class="ttl">${n.ref} <span class="yr">${n.yr || ''}</span></p><p class="role">${n.role || ''}</p>`
     + (n.confidence_code ? `<div class="confcode">Confidence &middot; <b>${n.confidence_code}</b>${n.standpoint ? ' &middot; ' + n.standpoint : ''}${n.horizon === 'A3' ? ' &middot; A3-horizon' : ''}</div>` : '')
-    + (n.prov === 'drawn-not-extracted' ? `<div class="provtag"><span class="pd"></span>reading-grade &middot; drawn-not-extracted &mdash; extract before A3 weight</div>` : '')
+    + (n.prov === 'pending-close-read' ? `<div class="provtag"><span class="pd"></span>reading-grade &middot; pending-close-read &mdash; close-read before A3 weight</div>` : '')
     + (n.tension_flag ? `<div class="tension${n.tension_hard ? ' hard' : ''}"><span class="tlab">${n.tension_hard ? '&#9888; hard flag' : 'tension &middot; carry un-flattened'}</span>${n.tension_flag}</div>` : '');
 }
 function showInstrument(i){
@@ -1650,7 +1650,7 @@ function renderDiscipline(){
     ctxPapers.forEach(p => nd.appendChild(mkNode(p, dNodeEls)));
     sub.appendChild(nd); ctxCol.appendChild(sub);
   }
-  // post-A3 nodes whose discipline is not yet extracted (DP5 trust / DP6 UDL)
+  // post-A3 nodes whose discipline is not yet close-read (DP5 trust / DP6 UDL)
   const pendPapers = papers.filter(p => !p.family);
   if (pendPapers.length){
     const sub = document.createElement('div'); sub.className = 'dsub';
