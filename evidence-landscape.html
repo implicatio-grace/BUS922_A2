@@ -306,6 +306,7 @@
     --fam-km: oklch(0.86 0.15 101);    /* Knowledge management — ochre */
     --fam-lscm:oklch(0.64 0.13 150);   /* Logistics & supply chain management — green (Richey; new B4) */
     --fam-csc: oklch(0.64 0.13 330);   /* Complex systems science — magenta (Scheffer; new B4) */
+    --fam-whrd:oklch(0.60 0.12 25);    /* Workforce & HRD — terracotta/brick (SME-context sixth family; B1) */
     --fam-ctx:oklch(0.62 0.012 250);   /* Context framing — warm grey (not a discipline) */
   }
   .lgd-lab{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted-2);}
@@ -316,11 +317,12 @@
   .node[data-family="KM"]{border-left-color:var(--fam-km);}
   .node[data-family="LSCM"]{border-left-color:var(--fam-lscm);}
   .node[data-family="CSC"]{border-left-color:var(--fam-csc);}
+  .node[data-family="WHRD"]{border-left-color:var(--fam-whrd);}
   .node[data-family="CTX"]{border-left-color:var(--fam-ctx);}
 
   /* family swatch + tag (detail panel, chips) */
   .fsw{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none;}
-  .fsw.sm{background:var(--fam-sm);} .fsw.ls{background:var(--fam-ls);} .fsw.km{background:var(--fam-km);} .fsw.lscm{background:var(--fam-lscm);} .fsw.csc{background:var(--fam-csc);} .fsw.ctx{background:var(--fam-ctx);}
+  .fsw.sm{background:var(--fam-sm);} .fsw.ls{background:var(--fam-ls);} .fsw.km{background:var(--fam-km);} .fsw.lscm{background:var(--fam-lscm);} .fsw.csc{background:var(--fam-csc);} .fsw.whrd{background:var(--fam-whrd);} .fsw.ctx{background:var(--fam-ctx);}
   .famtag{display:inline-flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:10px;
     letter-spacing:0.02em;padding:3px 9px;border-radius:6px;border:1px solid;line-height:1.35;}
   .famtag::before{content:"";width:8px;height:8px;border-radius:2px;background:currentColor;}
@@ -329,8 +331,33 @@
   .famtag.km{color:var(--fam-km);border-color:color-mix(in oklch,var(--fam-km) 40%,transparent);background:color-mix(in oklch,var(--fam-km) 10%,var(--paper));}
   .famtag.lscm{color:var(--fam-lscm);border-color:color-mix(in oklch,var(--fam-lscm) 40%,transparent);background:color-mix(in oklch,var(--fam-lscm) 8%,var(--paper));}
   .famtag.csc{color:var(--fam-csc);border-color:color-mix(in oklch,var(--fam-csc) 40%,transparent);background:color-mix(in oklch,var(--fam-csc) 8%,var(--paper));}
+  .famtag.whrd{color:var(--fam-whrd);border-color:color-mix(in oklch,var(--fam-whrd) 40%,transparent);background:color-mix(in oklch,var(--fam-whrd) 8%,var(--paper));}
   .famtag.ctx{color:oklch(0.50 0.012 250);border-color:var(--line-2);background:var(--grey-fill);}
   .dislab{margin-top:9px;}
+
+  /* ---- SME-context standpoint sub-groups (the gap column) ---- */
+  .sp-intro{font-size:11.5px;line-height:1.55;color:var(--muted);margin:2px 0 4px;max-width:34ch;}
+  .sp-group{margin-top:12px;}
+  .sp-head{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin:0 0 6px;
+    font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-2);}
+  .sp-head .sp-n{color:var(--navy);font-weight:500;}
+  .sp-head .sp-hint{text-transform:none;letter-spacing:0;font-style:italic;color:var(--muted-2);font-size:10.5px;}
+  .sp-group .nodes.vert{gap:5px;}
+
+  /* ---- tension flag: clickable ⚠ on nodes + panel block ---- */
+  .node .warn{font-family:"JetBrains Mono",monospace;font-size:9px;line-height:1;color:oklch(0.58 0.15 45);
+    border:1px solid color-mix(in oklch,oklch(0.58 0.15 45) 45%,transparent);border-radius:3px;padding:1px 3px;margin-left:2px;}
+  .node .warn.hard{color:#fff;background:oklch(0.58 0.15 45);border-color:oklch(0.58 0.15 45);}
+  .tension{margin-top:12px;padding:10px 12px;border-radius:9px;font-size:11.5px;line-height:1.5;
+    background:oklch(0.97 0.03 55);border:1px solid color-mix(in oklch,oklch(0.6 0.14 45) 32%,transparent);color:var(--ink-2);}
+  .tension .tlab{display:block;font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:0.1em;
+    text-transform:uppercase;color:oklch(0.52 0.15 40);margin-bottom:4px;}
+  .tension.hard{background:oklch(0.95 0.05 40);border-color:color-mix(in oklch,oklch(0.58 0.16 38) 55%,transparent);}
+  .provtag{display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-family:"JetBrains Mono",monospace;
+    font-size:9px;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);}
+  .provtag .pd{width:7px;height:7px;border-radius:50%;background:var(--muted-2);}
+  .confcode{margin-top:9px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:0.02em;color:var(--grey);}
+  .confcode b{color:var(--ink-2);font-weight:500;}
 
   /* family focus chips */
   .chip.fam-chip{display:inline-flex;align-items:center;gap:7px;}
@@ -340,6 +367,7 @@
   .chip.fam-chip[data-fam="KM"].on{background:var(--fam-km);border-color:var(--fam-km);}
   .chip.fam-chip[data-fam="LSCM"].on{background:var(--fam-lscm);border-color:var(--fam-lscm);}
   .chip.fam-chip[data-fam="CSC"].on{background:var(--fam-csc);border-color:var(--fam-csc);}
+  .chip.fam-chip[data-fam="WHRD"].on{background:var(--fam-whrd);border-color:var(--fam-whrd);}
   .chip.fam-chip.on .fsw{background:#fff;}
 
   /* DP3 cross-disciplinary 'warranted-from' badge */
@@ -374,11 +402,12 @@
   .dcol.fam-km{border-top-color:var(--fam-km);}
   .dcol.fam-lscm{border-top-color:var(--fam-lscm);}
   .dcol.fam-csc{border-top-color:var(--fam-csc);}
+  .dcol.fam-whrd{border-top-color:var(--fam-whrd);}
   .dcol.fam-ctx{border-top-color:var(--fam-ctx);background:color-mix(in oklch,var(--grey) 3%,#fff);}
   .dcolhead{display:flex;align-items:center;gap:9px;font-family:"Fraunces",Georgia,serif;font-size:16px;
     color:#2a2a27;padding-bottom:11px;margin-bottom:2px;border-bottom:1px solid var(--line);}
   .dcolhead .dsw{width:12px;height:12px;border-radius:3px;flex:none;}
-  .dcolhead .dsw.sm{background:var(--fam-sm);} .dcolhead .dsw.ls{background:var(--fam-ls);} .dcolhead .dsw.km{background:var(--fam-km);} .dcolhead .dsw.lscm{background:var(--fam-lscm);} .dcolhead .dsw.csc{background:var(--fam-csc);} .dcolhead .dsw.ctx{background:var(--fam-ctx);}
+  .dcolhead .dsw.sm{background:var(--fam-sm);} .dcolhead .dsw.ls{background:var(--fam-ls);} .dcolhead .dsw.km{background:var(--fam-km);} .dcolhead .dsw.lscm{background:var(--fam-lscm);} .dcolhead .dsw.csc{background:var(--fam-csc);} .dcolhead .dsw.whrd{background:var(--fam-whrd);} .dcolhead .dsw.ctx{background:var(--fam-ctx);}
   .dcolhead .dct{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);font-weight:400;}
   .dsub{margin-top:13px;}
   .dsubhead{font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:0.09em;text-transform:uppercase;
@@ -478,7 +507,7 @@
     <a class="back" href="index.html">&larr; Index</a>
     <div class="eyebrow">BUS922 A2</div>
     <h1>The evidence landscape</h1>
-    <p class="lede">The same evidence, read <b>left to right</b>: the <b>problem &mdash; the gap</b> (the industry scan + the academic mergers-and-acquisitions research) opens into <b>the synthesis</b>, which opens into <b>the design pipeline</b> (DP1 &rarr; DP4). Every paper is a dot, <b>tinted by the research literature it comes from</b> &mdash; so you can watch two independent literatures (learning sciences &amp; strategic management) converge on <b>DP3</b>, the headline cross-disciplinary move. Hover any paper to light up its connections, trace the <b>seven conversations</b>, or switch the whole landscape to read <b>by discipline</b> from the toolbar.</p>
+    <p class="lede">The same evidence, read <b>left to right</b>: the <b>problem &mdash; the gap</b> (the industry scan + the academic mergers-and-acquisitions research) opens into <b>the synthesis</b>, which opens into <b>the design pipeline</b> (DP1 &rarr; DP4). Every paper is a dot, <b>tinted by the research literature it comes from</b> &mdash; so you can watch two independent literatures (learning sciences &amp; strategic management) converge on <b>DP3</b>, the headline cross-disciplinary move. Hover any paper to light up its connections, trace the <b>nine conversations</b>, or switch the whole landscape to read <b>by discipline</b> from the toolbar.</p>
 
     <div class="toolbar">
       <div class="trow">
@@ -518,6 +547,8 @@
       </div>
       <div class="trow">
         <span class="tlabel">Conversations</span>
+        <button class="chip convo-chip" data-convo="conv-emptycell">the empty cell ◆</button>
+        <button class="chip convo-chip" data-convo="conv-acbridge">absorptive-capacity bridge</button>
         <button class="chip convo-chip" data-convo="cG">environmental scans agree</button>
         <button class="chip convo-chip" data-convo="cC">dual-purpose learning</button>
         <button class="chip convo-chip" data-convo="cE">contested foundations</button>
@@ -541,6 +572,7 @@
           <span class="it"><span class="sw" style="background:var(--fam-sm)"></span>Strategic mgmt &amp; M&amp;A</span>
           <span class="it"><span class="sw" style="background:var(--fam-ls)"></span>Learning sciences</span>
           <span class="it"><span class="sw" style="background:var(--fam-km)"></span>Knowledge mgmt</span>
+          <span class="it"><span class="sw" style="background:var(--fam-whrd)"></span>Workforce &amp; HRD</span>
           <span class="it"><span class="sw" style="background:var(--fam-lscm)"></span>Logistics &amp; SCM</span>
           <span class="it"><span class="sw" style="background:var(--fam-csc)"></span>Complex systems science</span>
           <span class="it"><span class="sw" style="background:var(--grey)"></span>environment scan &middot; n/a</span>
@@ -580,6 +612,9 @@
             <div class="colhead"><span class="reg navy">The problem · the gap</span></div>
             <div class="subhead navy">Academic warrant <span class="hint">serial-acquisition / codification</span> <button class="ibtn" data-explain="problem-nodes" aria-label="Read the explainer for the problem block" aria-expanded="false">i</button></div>
             <div class="nodes vert" id="problemNodes"></div>
+            <div class="subhead navy" style="margin-top:20px;">The SME-context base <span class="hint">six standpoints · the empty cell</span></div>
+            <div class="sp-intro">Twenty gate-relevant articles plus five reading-grade foils (dimmed), across six literatures &mdash; the problem base for O1. None combines serial acquisition with learning-embedded capability retention in an SME.</div>
+            <div id="smeContext"></div>
             <div class="subhead" style="color:var(--crit);">Positioning <span class="hint">imported-warrant survival</span> <button class="ibtn" data-explain="critical-nodes" aria-label="Read the explainer for the positioning block" aria-expanded="false">i</button></div>
             <div class="nodes vert" id="criticalNodes"></div>
           </div>
@@ -748,25 +783,199 @@ const GROUND_ANCHORS = [
 /* ---------- PROBLEM REGISTER · academic M&A serial-learning cluster ---------- */
 const PROBLEM = [
   { id:'zollosingh', ref:'Zollo &amp; Singh', yr:2004, register:'problem', gate:true, ft50:true, dots:4,
-    standing:'ABDC A* · Q1 · FT50 #50', venue:'Strategic Management Journal',
+    standing:'ABDC A* · Q1 · FT50', venue:'Strategic Management Journal',
     role:'The <b>codification node</b> and the direct warrant for the headline. Across 228 bank-merger acquisitions, deliberate knowledge codification predicts performance (&beta;=0.21) while experience accumulation does not; the benefit grows with integration complexity. <b>Warrants DP3</b> from the strategy side; latent DP2 (&ldquo;the learning is in the creating, not the tool&rdquo;).',
     touch:['dp3','dp2'] },
   { id:'haleblian', ref:'Haleblian &amp; Finkelstein', yr:1999, register:'problem', gate:true, ft50:true, dots:4,
-    standing:'ABDC A* · Q1 · FT50 #6', venue:'Administrative Science Quarterly',
+    standing:'ABDC A* · Q1 · FT50', venue:'Administrative Science Quarterly',
     role:'The deepest problem layer. Across 449 acquisitions, experience is <b>U-shaped</b> and similarity-contingent &mdash; inexperienced acquirers over-generalise. The discrimination capability experience slowly buys must, for the industry partner, be built into the Learn act.',
     touch:['dp3','dp4'] },
   { id:'trichterborn', ref:'Trichterborn et al.', yr:2016, register:'problem', gate:true, ft50:true, dots:4,
-    standing:'ABDC A* · Q1 · FT50 #50', venue:'Strategic Management Journal',
-    role:'The <b>capability node</b> and strongest SME-translation warrant. A dedicated M&amp;A function improves performance <b>only through</b> the capability it builds (full mediation, Sobel z=3.10) &mdash; a four-part process (articulate&rarr;codify&rarr;share&rarr;internalise). The unit is a means; the capability is the end, so an SME can build it by design. Front-end <b>is</b> DP2+DP3.',
+    standing:'ABDC A* · Q1 · FT50', venue:'Strategic Management Journal',
+    standpoint:'S-6', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Direct evidence', convergence_ids:['conv-emptycell'],
+    tension_flag:'Scale-attenuated payoff &mdash; capability&rarr;performance is positively moderated by firm size (smaller return for the SME). The FUNCTION does not port (that non-transfer IS the necessity); the CAPABILITY REQUIREMENT does.',
+    role:'The <b>capability node</b> and strongest SME-translation warrant. A dedicated M&amp;A function improves performance <b>only through</b> the capability it builds (full mediation, Sobel z=3.10) &mdash; a four-part process (articulate&rarr;codify&rarr;share&rarr;internalise). The unit is a means; the capability is the end, so an SME can build it by design. Front-end <b>is</b> DP2+DP3. <b>S-6 necessity (SME):</b> the large-firm fix is a dedicated FUNCTION the SME cannot staff &mdash; and the function was never the active ingredient (no direct effect; full mediation via capability). So the SME must secure the CAPABILITY by design, not the unit.',
     touch:['dp3'] },
   { id:'schweizer', ref:'Schweizer et al.', yr:2022, register:'problem', gate:true, ft50:false, dots:3,
     standing:'ABDC A* · Q1', venue:'Long Range Planning',
     role:'The recent meta-analytic consolidation (MASEM; 167 studies). Confirms the field-level finding that <b>deliberate-learning &gt; experience accumulation</b> &mdash; the gap is still live, not one dated study. Cite the <em>relative</em> contrast only (absolute effect small, k=9).',
     touch:['dp3'] },
   { id:'laamanen', ref:'Laamanen &amp; Keil', yr:2008, register:'problem', gate:true, ft50:true, dots:4,
-    standing:'ABDC A* · Q1 · FT50 #50', venue:'Strategic Management Journal',
+    standing:'ABDC A* · Q1 · FT50', venue:'Strategic Management Journal',
     role:'The direct serial-strain leg (independent). High acquisition <b>rate</b> and rate <b>variability</b> hurt performance; experience/size/scope absorb it; frequent acquirers outperform long-run. The strain is scale-independent (transfers to the industry partner); the absorbers are not &mdash; so engineer the absorbing capability.',
     touch:['dp3'] }
+];
+
+/* ---------- PROBLEM REGISTER · SME-context base (B1 compile v1.1) ----------
+   ~25 nodes across six standpoints (S-1…S-7). 20 extraction-grade + 5 reading-grade
+   foils (dim:true · prov:'drawn-not-extracted'). v5 keys (standpoint / prov /
+   cluster_primary / confidence_code / tension_flag / convergence_ids) render via
+   the deepened show() panel + the clickable ⚠. Grouped in the gap column by STANDPOINTS. */
+const SMECTX = [
+  // ---------- S-1 · SME-KM (KM) ----------
+  { id:'durst', ref:'Durst &amp; Edvardsson', yr:2012, register:'problem', gate:true, ft50:false, dots:3,
+    standing:'ABDC A · Q1 · gate ✓', venue:'Journal of Knowledge Management',
+    standpoint:'S-1', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Scope-bounded gap', tension_flag:'Maps that the gap <em>exists</em>, not its size; silent on acquisition; ~15 yrs old (pair with a current SME-KM review for A3).',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'The <b>gap-namer.</b> A review of 36 empirical SME-KM studies finds knowledge <b>storage/retention</b> the least-understood process (one empirical study in the corpus); insists SMEs are &ldquo;not a scaled-down large business&rdquo; and calls for a realistic SME-specific lens. <span class="conf">Retention is the field-named gap &mdash; the contribution zone.</span>' },
+  { id:'thorpe', ref:'Thorpe et al.', yr:2005, register:'problem', gate:true, ft50:false, dots:4,
+    standing:'ABDC A* · Q1 · gate ✓', venue:'Int. Journal of Management Reviews',
+    standpoint:'S-1', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Direct evidence', tension_flag:'Codification is a TENSION, not yes/no &mdash; too little loses the economies-of-scale edge, too much neuters innovation. Owner-manager-centric; ~20 yrs old.',
+    convergence_ids:['conv-emptycell'], touch:['dp4'],
+    role:'SME knowledge is bound up in people, relationships and situated practice &mdash; it &ldquo;resist[s] conceptualization as a separable asset&rdquo;, so codification can only go so far. The balance point &mdash; a reusable record that keeps context without over-formalising &mdash; is where by-product capture sits. <span class="conf">Embeddedness &rarr; DP4-ctx.</span>' },
+  { id:'massaro', ref:'Massaro et al.', yr:2016, register:'problem', gate:true, ft50:false, dots:3,
+    standing:'ABDC A · Q1 · gate ✓', venue:'Journal of Knowledge Management',
+    standpoint:'S-1', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Indirect evidence', tension_flag:'Rule F &mdash; declared extension of Durst &rarr; count S-1 once. Not retention evidence; KM-journals-only corpus.',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'A structured review of 89 SME-KM papers: the field is fragmented and thinly specialised, imports frameworks (83%), and <b>defines &ldquo;SME&rdquo; inconsistently</b> (34% give none). So the design must state precisely &mdash; a <em>growing small-to-medium</em> forwarder &mdash; not inherit a generic SME finding.' },
+
+  // ---------- S-2 · KnowledgeLoss (WHRD) ----------
+  { id:'eckardt', ref:'Eckardt et al.', yr:2014, register:'problem', gate:true, ft50:true, dots:4,
+    standing:'ABDC A* · Q1 · FT50 · gate ✓', venue:'Journal of Management Studies',
+    standpoint:'S-2', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Direct evidence', tension_flag:'Large-firm sample (sub-100-emp excluded): the SERVICE mechanism ports scale-independently; the SME-SIZE claim does NOT come from Eckardt (route to De Meulenaere/Xiao).',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'The <b>S-2 anchor.</b> Turnover-driven knowledge loss is real and <b>bites hardest in service firms</b>, because a service firm runs on people not machines; organisational capital (a codified record) cushions the blow but mainly pays off at high turnover. <span class="conf">Freight forwarding is a service firm.</span>' },
+  { id:'demeulenaere', ref:'De Meulenaere et al.', yr:2021, register:'problem', gate:true, ft50:true, dots:4,
+    standing:'ABDC A* · Q1 · FT50 · gate ✓', venue:'Journal of Management',
+    standpoint:'S-2', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Direct evidence', tension_flag:'⚠ HARD &mdash; do NOT say &ldquo;small knowledge-intensive firms hit hardest&rdquo;. Sign-reversing three-way interaction. Correct: the SME can&rsquo;t fast-replace and leans on informal adaptation. Belgian EPL boundary.', tension_hard:true,
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'The <b>size × knowledge-intensity facet.</b> Turnover&rsquo;s cost depends on firm size and knowledge-intensity: big firms replace fast, small firms can&rsquo;t &mdash; their strength is adapting quickly and keeping knowledge moving through close relationships. <span class="conf">Read the interaction, not the headline.</span>' },
+  { id:'xiao', ref:'Xiao &amp; Lindholm Dahlstrand', yr:2023, register:'problem', gate:true, ft50:false, dots:3,
+    standing:'ABDC A · Q1 · gate ✓', venue:'Small Business Economics',
+    standpoint:'S-2', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Direct evidence', tension_flag:'Small TECH firms; skill-biased; owner-exit ≠ capability loss. Retention is a deliberate choice. Don&rsquo;t flatten to &ldquo;people leave&rdquo;. Bridges S-2 (loss) ↔ S-4 (acquirer).',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'When a small firm is <b>bought, more people leave</b> and take know-how with them; the ones the new owner deems essential stay &mdash; but only because retention is <b>deliberate</b>. The one paper that puts acquisition and mobility in one small-firm study. <span class="conf">S-2 primary · S-4 secondary.</span>' },
+  { id:'galan', ref:'Galan', yr:2023, register:'problem', gate:false, ft50:false, dots:2,
+    standing:'ABDC C · Q2 · gate ✗ MISS', venue:'The Learning Organization',
+    standpoint:'S-2', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Scope-bounded gap', tension_flag:'Gate-MISS (non-gate review support &mdash; not a floor-counter). Organisation-general, not SME-specific. Rule F: count S-2 via Eckardt. Parts I+II.',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'The dedicated KLT systematic review (91 studies): the knowledge that hurts most to lose is <b>tacit and unwritten</b>; the standard fixes (exit interviews, handover recordings) tend to fail because leavers won&rsquo;t share, and most firms &mdash; small ones especially &mdash; have no holistic strategy. <span class="conf">Review-level deepener beneath Eckardt.</span>' },
+
+  // ---------- S-3 · SME-Learning (WHRD) ----------
+  { id:'kotey', ref:'Kotey &amp; Folker', yr:2007, register:'problem', gate:true, ft50:false, dots:3,
+    standing:'ABDC A · Q1 · gate ✓', venue:'Journal of Small Business Management',
+    standpoint:'S-3', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Direct evidence', tension_flag:'Australian MANUFACTURING, 1997–98. Informal-norm + size-gradient port; training-type mix is manufacturing-flavoured (flag for a service forwarder). Family/non-family is a boundary, not a Whale claim.',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'The <b>S-3 anchor.</b> Across 918 SMEs, on-the-job (informal) training predominates at <b>every</b> size; formal, structured development only appears past ~20–50 staff. So &ldquo;no dedicated PD team&rdquo; is the empirical <b>norm</b>, not an assumption &mdash; development has to be built into the work.' },
+  { id:'kortsch', ref:'Kortsch et al.', yr:2019, register:'problem', gate:true, ft50:false, dots:2,
+    standing:'ABDC B · Q1 (SCImago route) · marginal', venue:'European Journal of Training and Development',
+    standpoint:'S-3', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Indirect evidence', tension_flag:'Correlational; marketability is PERCEIVED not realised; German craft; marginal gate (SCImago-Q1 only). Not independent of Decius &mdash; count S-3 via Kotey.',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'The load-bearing S-3 support: intensive informal learning raises an employee&rsquo;s <b>internal</b> marketability (value to the current employer) <b>without</b> raising <b>external</b> marketability &mdash; so developing people this way is a <b>retention strategy, not a retention risk</b>. Dissolves the &ldquo;won&rsquo;t they just leave?&rdquo; worry.' },
+  { id:'decius', ref:'Decius et al.', yr:2021, register:'problem', gate:false, ft50:false, dots:1,
+    standing:'Not Listed · Q2 · gate ✗ MISS', venue:'Vocations and Learning',
+    standpoint:'S-3', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Indirect evidence', tension_flag:'Gate-MISS; German blue-collar; correlational; NOT independent of Kortsch (German programme).',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'Whether people learn on the job comes down to two levers a small firm can shape without a training dept: <b>who it hires</b> (curious self-starters) and the <b>everyday climate</b> (supportive bosses/colleagues, mistakes-as-learning). <span class="conf">Social support is the designable lever; size-null within the SME range.</span>' },
+
+  // ---------- S-4 · MandA-SME (SM) ----------
+  { id:'arvanitis', ref:'Arvanitis &amp; Stucki', yr:2015, register:'problem', gate:true, ft50:false, dots:3,
+    standing:'ABDC A · Q1 · gate ✓', venue:'International Small Business Journal',
+    standpoint:'S-4', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Direct evidence', tension_flag:'Performance DV only &mdash; NOT retention evidence. Single-event, not serial. Pays off on money, not knowledge.',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'The <b>S-4 anchor.</b> When SMEs acquire, it tends to pay off (sales, productivity, new-product revenue rise); acquisition is a real, evidence-backed growth strategy at this size &mdash; <b>not</b> a scaled-down large-firm story. But the study measures money, not knowledge. <span class="conf">The acquirer is real; its knowledge is unstudied.</span>' },
+  { id:'gala', ref:'Gala &amp; Mueller', yr:2024, register:'problem', gate:true, ft50:false, dots:3,
+    standing:'ABDC A · Q1 · gate ✓', venue:'Journal of Small Business Management',
+    standpoint:'S-4', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Design inference', tension_flag:'Conceptual, not tested. People-retention ≠ capability-as-record (the novelty). Rule F: cites six S-4/held sources &rarr; count S-4 via Arvanitis.',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'The conceptual co-anchor: <b>acquihiring</b> (buying a firm mainly for its people) fits SMEs &mdash; arguably better than big firms &mdash; and the one thing that decides success is <b>keeping the acquired people</b>; done repeatedly it needs a dedicated function. <span class="conf">Centres retention &mdash; the cell Arvanitis is silent on.</span>' },
+  { id:'weitzel', ref:'Weitzel &amp; McCarthy', yr:2011, register:'problem', gate:false, ft50:false, dots:1,
+    standing:'Not Listed · Q3 · gate ✗ MISS', venue:'Int. J. Entrepreneurship &amp; Innovation Mgmt',
+    standpoint:'S-4', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Scope-bounded gap', tension_flag:'Gate-MISS. Finance/behaviour only (warrant-by-absence for the people side). SME-observability bias; not serial.',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'SMEs don&rsquo;t acquire like corporates: they abandon souring deals far more readily, use acquisitions intensively for their size, and pay in shares &mdash; because owner-managers curb empire-building. <span class="conf">Confirms the SME acquirer is a distinct object; the people side is the absence.</span>' },
+
+  // ---------- S-5 · Freight/AU + SME-Capability ----------
+  { id:'fabrizio', ref:'Fabrizio et al.', yr:2022, register:'problem', gate:true, ft50:false, dots:3,
+    standing:'ABDC A · Q1 · gate ✓', venue:'Review of Managerial Science',
+    standpoint:'S-5', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Scope-bounded gap', tension_flag:'The citable absence &mdash; n=70 corpus has NO freight/logistics and NO retention paper. Dynamic/strategic capability ≠ tacit operational know-how (don&rsquo;t read as retention evidence). Descriptive bibliometric, 2 databases.',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'The closest-available SME-capability review (70 studies): small firms compete from <b>resource scarcity</b>, so their edge comes from capabilities they <b>build</b>, not resources they buy. Its corpus <b>containing no freight and no retention paper is itself the S-5 absence</b>.' },
+  { id:'bernal', ref:'Bernal et al.', yr:2002, register:'problem', gate:true, ft50:false, dots:3, dim:true,
+    standing:'IJEBR — ABDC A · Q1 · gate ✓ (B14; PDF masthead-confirmed)', venue:'Int. J. Entrepreneurial Behaviour &amp; Research',
+    standpoint:'S-5', prov:'drawn-not-extracted', cluster_primary:'problem-gap',
+    confidence_code:'Single source', tension_flag:'⚠ CF4 &mdash; small freight forwarders, but studied on INTER-firm network collaboration (&ldquo;fear of sharing valued corporate information&rdquo; between competitors), NOT intra-firm retention. Possible genuine tension with the proposed design &mdash; carry as a design consideration. Standing VERIFIED B14 (DOI 10.1108/13552550210448348); still reading-grade &mdash; not yet extracted.', tension_hard:true,
+    convergence_ids:[], touch:[],
+    role:'<b>Reading-grade (extract before A3 weight).</b> An empirical case of a <b>small-freight-forwarder network</b> &mdash; the closest firm-type match &mdash; but on inter-firm collaboration among competitors, not within-firm retention. Sharpens the boundary of the empty cell.' },
+  { id:'gekara', ref:'Gekara &amp; Nguyen', yr:2018, register:'problem', gate:true, ft50:false, dots:3, dim:true,
+    standing:'NTWE — ABDC A · gate ✓ (B14; NTWE 33:3)', venue:'New Technology, Work and Employment',
+    standpoint:'S-5', prov:'drawn-not-extracted', cluster_primary:'problem-gap',
+    confidence_code:'Indirect evidence', tension_flag:'Container TERMINALS / large operators, automation skills-shift &mdash; not forwarding, not SMEs. Frames AU context only. Standing VERIFIED B14 (NTWE 33:3, DOI 10.1111/ntwe.12118); still reading-grade &mdash; not yet extracted.',
+    convergence_ids:[], touch:[],
+    role:'<b>Reading-grade.</b> Automation is reshaping AU logistics skills &mdash; but at container terminals/large operators, not freight forwarders. Frames the Australian technology-and-workforce context, adjacent to the cell.' },
+  { id:'thai', ref:'Thai et al.', yr:2011, register:'problem', gate:true, ft50:false, dots:3, dim:true,
+    standing:'APJML — ABDC A · Q1 · IF 7.53 · gate ✓ (B14)', venue:'Asia Pacific J. Marketing and Logistics',
+    standpoint:'S-5', prov:'drawn-not-extracted', cluster_primary:'problem-gap',
+    confidence_code:'Single source', tension_flag:'⚠ Relational skills #1–3 SUPPORT the situated-knowledge framing, but &ldquo;on-the-job learning too constrained within daily job scope&rdquo; COMPLICATES the work-embedded premise &mdash; meet head-on. PD prescription is industry–university collaboration. Standing VERIFIED B14 (ISSN 1355-5855); still reading-grade &mdash; not yet extracted.',
+    convergence_ids:[], touch:[],
+    role:'<b>Reading-grade.</b> AU logistics professionals rank <b>relational skills</b> highest (supports situated knowledge) &mdash; but flag that daily job scope constrains on-the-job learning, a tension the design must answer rather than assume away.' },
+
+  // ---------- S-6 · Necessity + novelty ----------
+  { id:'wikstrom', ref:'Wikström et al.', yr:2018, register:'problem', gate:true, ft50:false, dots:3,
+    standing:'ABDC A · Q1 · gate ✓', venue:'Journal of Knowledge Management',
+    standpoint:'S-6', prov:'extraction-grade', cluster_primary:'problem-gap',
+    confidence_code:'Direct evidence', tension_flag:'Large-firm case &mdash; knowing-nature is scale-independent (ports a-fortiori). Trigger = RETIREMENT (translate to turnover/acquisition). The headcount-culture barrier is large-firm (an SME may escape it). Single interpretive case.',
+    convergence_ids:['conv-emptycell'], touch:[],
+    role:'The <b>novelty warrant.</b> Inside a ~28,500-emp firm, the knowledge people value most is tacit &ldquo;knowing&rdquo; (and &ldquo;knowing who to call&rdquo;); formal capture-and-codify <b>fails</b>, informal side-by-side practice works. The firm stops at &ldquo;create the conditions&rdquo; &mdash; so <b>designing capture as a by-product of the work is the un-taken step</b>.' },
+  { id:'levallet', ref:'Levallet &amp; Chan', yr:2019, register:'problem', gate:true, ft50:false, dots:3, dim:true,
+    standing:'JKM — ABDC A · Q1 · IF 11.65 · gate ✓ (B14)', venue:'Journal of Knowledge Management',
+    standpoint:'S-6', prov:'drawn-not-extracted', cluster_primary:'problem-gap',
+    confidence_code:'Direct evidence', tension_flag:'THE one gate-eligible foil &mdash; now B14-confirmed A·Q1 (gate ✓); still reading-grade, extract before A3 weight. Canadian federal public service; the ~500-emp figure applies to GovHR only (GovHealth size unstated); qualitative/propositional. Positioning, not SME/freight evidence.',
+    convergence_ids:[], touch:[],
+    role:'<b>Reading-grade (gate-eligible once extracted).</b> The foil in one line: knowledge <b>captured and stored can still be lost</b> if it is not converted from individual to social knowledge and reused &mdash; codification-alone leaks; effective retention is <b>hybrid</b>, and departing experts often run out of time to convert.' },
+  { id:'dewah', ref:'Dewah &amp; Mutula', yr:2016, register:'problem', gate:false, ft50:false, dots:0, dim:true,
+    standing:'Information Development — Not listed · SJR 0.536 · gate ✗ (B14; foil, neutral)', venue:'Information Development',
+    standpoint:'S-6', prov:'drawn-not-extracted', cluster_primary:'problem-gap',
+    confidence_code:'Single source', tension_flag:'Public-sector sub-Saharan Africa, literature survey &mdash; names the conventional set, doesn&rsquo;t evidence an AU freight SME. Foil-by-naming only. Standing VERIFIED B14 (Not listed / SJR 0.536 &mdash; foil, gate-neutral by design).',
+    convergence_ids:[], touch:[],
+    role:'<b>Reading-grade.</b> Names the conventional retention set (codification, personalisation, training, mentoring, repositories) and the lean-firm conditions that undermine it (weak incentives, thin tech, low commitment). The status quo the design departs from.' },
+
+  // ---------- S-7 · AbsorptiveCapacity (KM · renders as KM×SM convergence) ----------
+  { id:'liao', ref:'Liao, Welsch &amp; Stoica', yr:2003, register:'problem', gate:true, ft50:true, dots:4,
+    standing:'ABDC A* · Q1 · FT50 · gate ✓', venue:'Entrepreneurship Theory and Practice',
+    standpoint:'S-7', prov:'extraction-grade', horizon:'A3', cluster_primary:'problem-gap',
+    confidence_code:'Cross-cutting convergence', tension_flag:'A3-horizon (one line at A2). AC is cumulative/history-dependent &rarr; build early by design. Count S-7 once, via Liao.',
+    convergence_ids:['conv-acbridge','conv-emptycell'], touch:['dp4'],
+    role:'The <b>AC bridge anchor.</b> Across 107 growth SMEs, both AC dimensions &mdash; pulling in outside know-how and spreading it internally &mdash; predict responsiveness <b>independent of size/age</b>; turbulence and strategic orientation moderate <b>asymmetrically</b> (turbulence&rarr;dissemination; orientation&rarr;acquisition); AC is cumulative, so it must be grown early, by design. <span class="conf">KM×SM: external-knowledge &rarr; responsiveness.</span>' },
+  { id:'gray', ref:'Gray', yr:2006, register:'problem', gate:true, ft50:false, dots:3,
+    standing:'ABDC A · Q1 · gate ✓', venue:'Int. J. Entrepreneurial Behaviour &amp; Research',
+    standpoint:'S-7', prov:'extraction-grade', horizon:'A3', cluster_primary:'problem-gap',
+    confidence_code:'Indirect evidence', tension_flag:'Downstream of Liao (Rule F). A3-horizon.',
+    convergence_ids:['conv-acbridge'], touch:['dp4'],
+    role:'AC is uneven across small firms: the slightly-larger, more-educated (technically-trained), growth-oriented owners build it; the smallest, most independence-minded do not. <span class="conf">AC is buildable but not automatic &mdash; size/education/growth-culture graded within the SME band.</span>' },
+  { id:'valentim', ref:'Valentim et al.', yr:2016, register:'problem', gate:true, ft50:false, dots:3,
+    standing:'ABDC A · Q1 · gate ✓', venue:'R&amp;D Management',
+    standpoint:'S-7', prov:'extraction-grade', horizon:'A3', cluster_primary:'problem-gap',
+    confidence_code:'Indirect evidence', tension_flag:'Downstream of Liao. A3-horizon.',
+    convergence_ids:['conv-acbridge'], touch:['dp4'],
+    role:'SMEs build AC not through R&amp;D departments they can&rsquo;t afford but through <b>everyday practice</b> &mdash; learning from experience, internal sharing, person-to-person transfer (the tacit, human side) &mdash; and <b>smaller firms rely on it more</b>. <span class="conf">The how of the AC bridge.</span>' },
+  { id:'moilanen', ref:'Moilanen et al.', yr:2014, register:'problem', gate:true, ft50:false, dots:3,
+    standing:'ABDC A · Q1 · gate ✓', venue:'Small Business Economics',
+    standpoint:'S-7', prov:'extraction-grade', horizon:'A3', cluster_primary:'problem-gap',
+    confidence_code:'Cross-cutting convergence', tension_flag:'⚠ HARD &mdash; non-R&amp;D boundary. For non-R&amp;D firms (freight is non-R&amp;D) AC mediation is WEAK; external knowledge acts DIRECTLY via networks/trade bodies/personal ties. Do NOT over-claim the AC-mediation bridge. Independent of Liao (genuine boundary).', tension_hard:true,
+    convergence_ids:['conv-acbridge'], touch:['dp4'],
+    role:'The <b>independent boundary.</b> On 431 SMEs (309 non-R&amp;D, 72% services &mdash; closest match to freight), for non-R&amp;D firms AC mediates <b>weakly</b> and external knowledge feeds innovation <b>directly</b> &mdash; the single strongest direct channel being <b>customers</b>. So for the partner the point is <b>relational/experiential</b> capability, which standard AC measures under-capture.' },
+  { id:'muller', ref:'Müller et al.', yr:2021, register:'problem', gate:true, ft50:false, dots:3,
+    standing:'ABDC A · Q1 · gate ✓', venue:'European Management Journal',
+    standpoint:'S-7', prov:'extraction-grade', horizon:'A3', cluster_primary:'problem-gap',
+    confidence_code:'Indirect evidence', tension_flag:'Independent corroborator (raises robustness, not breadth). A3-horizon &mdash; the digital &ldquo;why now&rdquo; analogue.',
+    convergence_ids:['conv-acbridge'], touch:['dp4'],
+    role:'Small firms are strong at <b>gathering/sensing</b> new knowledge but stall at <b>realising</b> it (turning it into new ways of working); under a digital wave they must <b>explore</b>, not optimise, their way through. <span class="conf">Potential vs realised AC &mdash; the GenAI/automation &ldquo;why now&rdquo;.</span>' }
 ];
 
 /* context framing — out of the bounded slice (cumulative-strain "why now") */
@@ -836,9 +1045,9 @@ const DPS = [
     title:'Context-rich intermediate',
     gist:'Capture a rich, situated intermediate and stop. Reuse-preparation happens later &mdash; that&rsquo;s Share&rsquo;s job. Do not decontextualise at the point of creation; the context is the strategic asset. The Learn&rarr;Share seam.',
     nodes:[
-      { id:'markus', ref:'Markus', yr:2001, gate:true, ft50:true, dots:4, standing:'ABDC A* · Q1 · FT50 #26', venue:'J. Management Information Systems',
+      { id:'markus', ref:'Markus', yr:2001, gate:true, ft50:true, dots:4, standing:'ABDC A* · Q1 · FT50', venue:'J. Management Information Systems',
         role:'The DP4 <b>anchor</b> and the Learn&rarr;Share seam. The <b>producer&ndash;reuser asymmetry</b>: producers rarely repurpose their own output; repositories need rework &mdash; so capture context-rich and defer reuse-prep downstream. The by-product design answers his asymmetry.' },
-      { id:'szulanski', ref:'Szulanski', yr:2000, gate:true, ft50:true, dots:4, standing:'ABDC A* · Q1 · FT50 #40', venue:'OBHDP',
+      { id:'szulanski', ref:'Szulanski', yr:2000, gate:true, ft50:true, dots:4, standing:'ABDC A* · Q1 · FT50', venue:'OBHDP',
         role:'The <b>transfer-risk leg</b> (empirical). Stickiness is driven by <b>causal ambiguity</b> and the recipient&rsquo;s <b>absorptive capacity</b> (122 transfers). A context-rich intermediate attacks stickiness at source &mdash; it preserves the why/how. Bounds the claim: reuse-<em>ready</em>, not self-transferring.' },
       { id:'riviere', ref:'Rivi&egrave;re et al.', yr:2019, gate:true, dots:3, standing:'Q1 · gate-qualifying', venue:'Academic Medicine',
         role:'The <b>learning-theory leg</b> (CDR). Abstraction must be bracketed: contextualise &rarr; decontextualise &rarr; recontextualise &mdash; so it cannot be done cleanly at capture. Confirms the Learn&rarr;Share boundary: capture context-rich now, defer guided abstraction downstream.' },
@@ -852,7 +1061,7 @@ const DPS = [
     gist:'Reflect privately first, then choose what to share &mdash; the learner controls what becomes visible. Sharing is a safe <em>and</em> productive act, not an automatic post. <b>Post-A3 &mdash; informs the direction; outside the bounded slice.</b>',
     nodes:[
       { id:'colman', ref:'Colman &amp; Rouzies', yr:2019, register:'postA3', gate:true, ft50:true, dots:4, dim:true,
-        standing:'ABDC A* · Q1 · FT50 #25', venue:'Journal of Management',
+        standing:'ABDC A* · Q1 · FT50', venue:'Journal of Management',
         role:'<b>DP5 seed &mdash; the Strategic-management warrant (out of slice).</b> Integration is a relational accomplishment: pre-existing embedded relationships channel the boundary-spanning that facilitates integration; severing them destroys acquired capability. Grounds <em>why</em> surfacing situated knowledge matters &mdash; the M&amp;A-side seed for a trust-and-sharing design principle.' },
       { id:'rouzies', ref:'Rouzies, Colman &amp; Angwin', yr:2019, register:'postA3', gate:true, ft50:false, dots:3, dim:true,
         standing:'ABDC A* · Q1', venue:'Long Range Planning',
@@ -886,7 +1095,7 @@ const DPS = [
 /* ---------- CRITICAL ENGAGEMENT · positioning tier (not gate-counted) ---------- */
 const CRITICAL = [
   { id:'gourlay', ref:'Gourlay', yr:2006, register:'critical', gate:false, ft50:true, dots:4, positioning:true,
-    standing:'ABDC A* · Q1 · FT50 #27 · positioning', venue:'J. of Management Studies',
+    standing:'ABDC A* · Q1 · FT50 · positioning', venue:'J. of Management Studies',
     role:'<b>Positions DP2 (externalisation).</b> The established SECI critique: the conversion modes are thinly evidenced and conceptually uneven. The slice imports externalisation as a <b>name</b> only and relocates the effect evidence onto the generative-learning literatures. Disciplines the justification, not the design.',
     positions:'dp2' },
   { id:'farnese', ref:'Farnese et al.', yr:2019, register:'critical', gate:false, ft50:false, dots:2, positioning:true,
@@ -899,7 +1108,7 @@ const CRITICAL = [
     positions:'dp1' }
 ];
 
-/* ---------- CONVERSATIONS (the seven) + the causal chain ----------
+/* ---------- CONVERSATIONS (the nine) + the causal chain ----------
    kind on each arc = edge weight: mechanistic | defensible | interpretive | consistent-with */
 const CONVERSATIONS = {
   cA: { name:'Both ends settled; the middle is the contribution', lineage:'',
@@ -930,6 +1139,14 @@ const CONVERSATIONS = {
     desc:'The three industry analyses agree with each other and with the academic problem research: PESTEL (the economy), Five Forces (the industry) and VRIO (the firm) all point to developing people&rsquo;s capability as the sensible business response. VRIO&rsquo;s open question &mdash; is the know-how being developed and shared? &mdash; lines up with the M&amp;A finding that deliberate learning, not just experience, drives performance.',
     nodes:['pestel','fiveforces','vrio','zollosingh'],
     arcs:[['pestel','fiveforces','interpretive'],['fiveforces','vrio','interpretive'],['vrio','zollosingh','defensible']] },
+  'conv-emptycell': { name:'The empty cell — six standpoints, one unoccupied setting', lineage:'', headline:true,
+    desc:'The problem-side analogue of the cross-disciplinary hinge: six <b>independent</b> literatures converge on one under-occupied setting &mdash; and none combines serial acquisition with learning-embedded capability retention in an SME. One source is credited per standpoint (Durst S-1 · Eckardt S-2 · Kotey&amp;Folker S-3 · Arvanitis S-4 · the freight absence/Fabrizio S-5 · Liao S-7) &mdash; six perspectives, counted once each.',
+    nodes:['durst','eckardt','kotey','arvanitis','fabrizio','liao'],
+    arcs:[['durst','eckardt','interpretive'],['eckardt','kotey','interpretive'],['kotey','arvanitis','interpretive'],['arvanitis','fabrizio','interpretive'],['fabrizio','liao','interpretive']] },
+  'conv-acbridge': { name:'Absorptive capacity — the KM×SM bridge', lineage:'',
+    desc:'External-knowledge acquisition &rarr; intrafirm dissemination &rarr; responsiveness: buildable by design, but <b>relational</b> in a non-R&amp;D service firm (the Moilanen boundary). Homes in knowledge management, meets strategic management at the capability node (Trichterborn). A3-horizon &mdash; one line at A2. Count once via Liao; Moilanen is an independent boundary, Müller an independent corroborator.',
+    nodes:['liao','gray','valentim','moilanen','muller','trichterborn'],
+    arcs:[['liao','gray','defensible'],['liao','valentim','consistent-with'],['muller','liao','consistent-with'],['moilanen','liao','interpretive'],['liao','trichterborn','defensible']] },
   chain: { name:'&rarr; The causal chain (one chain, both ends, both disciplines)', lineage:'', chain:true,
     desc:'serial-acquisition strain (the M&amp;A problem) &rarr; DP1 authentic problem &rarr; DP2 generative articulation &rarr; DP3 the template (the hinge) &rarr; DP4 context-rich intermediate &rarr; the Learn&rarr;Share seam. The strongest mechanistic warrant for the whole pipeline.',
     nodes:['zollosingh','dp1','dp2','dp3','dp4'],
@@ -946,8 +1163,8 @@ const CONVERSATIONS = {
 const EXPLAINERS = {
   'problem-nodes': {
     title:'The problem \u00b7 the gap',
-    business:`Grow by buying other companies and you keep inheriting new teams, each carrying hard-won know-how about customs, clients, and how the work really gets done. What experience builds, deal after deal, is judgement: the ability to tell when a new acquisition genuinely resembles a past one and when it only looks that way, so a lesson is applied where it fits and set aside where it doesn't (Haleblian &amp; Finkelstein 1999). That discernment is real and valuable, but on its own it accumulates slowly and stays in people's heads. What reliably lifts performance across organisations is deliberately capturing it, writing down what each acquisition teaches, rather than relying on experience alone (Zollo &amp; Singh 2004), a contrast the most recent evidence still bears out (Schweizer et al. 2022). And the pace of frequent acquiring brings its own strain, pressing on a smaller forwarder as much as a large one (Laamanen &amp; Keil 2008). The right capability can absorb the strain, and that capability can be built by design (Trichterborn et al. 2016). So that mature judgement is exactly the knowledge worth keeping, and the principles that follow ask how the act of learning might also leave a lasting record of it, so it stays with the team when a colleague retires or moves on.`,
-    scholar:`It is intuitive that experienced serial acquirers, firms that grow by acquiring others as an ongoing programme, integrate each new firm better than the last. The strategic-management and M&amp;A literature finds the opposite, and does so from four kinds of evidence that converge on one claim: serial-acquisition performance is governed by deliberately built capability, not by deal count (Haleblian &amp; Finkelstein 1999; Zollo &amp; Singh 2004; Trichterborn et al. 2016; Schweizer et al. 2022; Laamanen &amp; Keil 2008). The seminal study finds the relationship between experience and performance to be U-shaped: moderately experienced acquirers over-apply lessons to targets that only look similar, and performance recovers only once experience yields discrimination, the judgement to tell a genuinely comparable case from a superficially similar one (Haleblian &amp; Finkelstein 1999). What reliably drives performance is not experience but knowledge codification, the deliberate articulation of what each deal teaches into reusable form (Zollo &amp; Singh 2004). This codification is the core of a wider capability that a firm builds on purpose rather than absorbs through experience (Trichterborn et al. 2016), and a recent meta-analysis confirms the pattern at field scale, where deliberate learning outperforms experience alone by roughly an order of magnitude (Schweizer et al. 2022). Frequent, uneven acquiring also imposes a strain of its own, one that falls hardest on the firm too small to absorb it (Laamanen &amp; Keil 2008). For a serial-acquiring SME with no dedicated function, this discriminating, codifying capability cannot be waited for or staffed; the literature holds it can instead be built by design (Trichterborn et al. 2016). That judgement is the knowledge worth keeping, and the design principles that follow ask how the act of learning might also produce a durable record of it, one that stays with the team when a colleague retires or moves on.`
+    business:`Grow by buying other companies and you keep inheriting new teams, each carrying hard-won know-how about customs, clients, and how the work really gets done. What experience builds, deal after deal, is judgement: the ability to tell when a new acquisition genuinely resembles a past one and when it only looks that way, so a lesson is applied where it fits and set aside where it doesn't (Haleblian &amp; Finkelstein 1999). That discernment is real and valuable, but on its own it accumulates slowly and stays in people's heads. What reliably lifts performance across organisations is deliberately capturing it, writing down what each acquisition teaches, rather than relying on experience alone (Zollo &amp; Singh 2004), a contrast the most recent evidence still bears out (Schweizer et al. 2022). And the pace of frequent acquiring brings its own strain, pressing on a smaller forwarder as much as a large one (Laamanen &amp; Keil 2008). The right capability can absorb the strain, and that capability can be built by design (Trichterborn et al. 2016). So that mature judgement is exactly the knowledge worth keeping, and the principles that follow ask how the act of learning might also leave a lasting record of it, so it stays with the team when a colleague retires or moves on. Beyond this mergers-and-acquisitions core, the landscape now grounds the problem in its SME context &mdash; six further standpoints (knowledge loss through turnover, informal learning without a development function, the SME as acquirer, the freight-forwarder and Australian setting, the necessity-and-novelty pivot, and absorptive capacity) that together mark out the empty cell this study sets out to occupy.`,
+    scholar:`It is intuitive that experienced serial acquirers, firms that grow by acquiring others as an ongoing programme, integrate each new firm better than the last. The strategic-management and M&amp;A literature finds the opposite, and does so from four kinds of evidence that converge on one claim: serial-acquisition performance is governed by deliberately built capability, not by deal count (Haleblian &amp; Finkelstein 1999; Zollo &amp; Singh 2004; Trichterborn et al. 2016; Schweizer et al. 2022; Laamanen &amp; Keil 2008). The seminal study finds the relationship between experience and performance to be U-shaped: moderately experienced acquirers over-apply lessons to targets that only look similar, and performance recovers only once experience yields discrimination, the judgement to tell a genuinely comparable case from a superficially similar one (Haleblian &amp; Finkelstein 1999). What reliably drives performance is not experience but knowledge codification, the deliberate articulation of what each deal teaches into reusable form (Zollo &amp; Singh 2004). This codification is the core of a wider capability that a firm builds on purpose rather than absorbs through experience (Trichterborn et al. 2016), and a recent meta-analysis confirms the pattern at field scale, where deliberate learning outperforms experience alone by roughly an order of magnitude (Schweizer et al. 2022). Frequent, uneven acquiring also imposes a strain of its own, one that falls hardest on the firm too small to absorb it (Laamanen &amp; Keil 2008). For a serial-acquiring SME with no dedicated function, this discriminating, codifying capability cannot be waited for or staffed; the literature holds it can instead be built by design (Trichterborn et al. 2016). That judgement is the knowledge worth keeping, and the design principles that follow ask how the act of learning might also produce a durable record of it, one that stays with the team when a colleague retires or moves on. The SME-context base shown below extends this M&amp;A core across six further standpoints &mdash; knowledge loss through turnover, informal SME learning, the SME as acquirer, the freight and Australian context, the necessity&ndash;novelty pivot, and absorptive capacity &mdash; whose convergence on one under-occupied setting is the empty cell the study addresses.`
   },
   'critical-nodes': {
     title:'Positioning \u00b7 imported-warrant survival',
@@ -997,7 +1214,7 @@ const EXPLAINERS = {
 
 /* ---------- node index (id -> object) ---------- */
 const NODE_INDEX = {};
-[...PROBLEM, ...POSTA3, ...CRITICAL, ...GROUND_ANCHORS].forEach(n => NODE_INDEX[n.id] = n);
+[...PROBLEM, ...SMECTX, ...POSTA3, ...CRITICAL, ...GROUND_ANCHORS].forEach(n => NODE_INDEX[n.id] = n);
 DPS.forEach(dp => { NODE_INDEX[dp.id] = dp; dp.nodes.forEach(n => { n.dp = dp.id; NODE_INDEX[n.id] = n; }); });
 INSTRUMENTS.forEach(i => NODE_INDEX[i.id] = i);
 
@@ -1010,9 +1227,10 @@ const FAMILIES = {
   KM:  { label:'Knowledge management',       short:'Knowledge mgmt',      css:'km' },
   LSCM:{ label:'Logistics & supply chain management', short:'Logistics & SCM', css:'lscm' },
   CSC: { label:'Complex systems science',    short:'Complex systems science', css:'csc' },
+  WHRD:{ label:'Workforce & HRD',            short:'Workforce & HRD',      css:'whrd' },
   CTX: { label:'Context framing',            short:'Context framing',     css:'ctx' }
 };
-const FAMILY_ORDER = ['SM','LS','KM','LSCM','CSC'];
+const FAMILY_ORDER = ['SM','LS','KM','WHRD','LSCM','CSC'];
 const DISCIPLINE = {
   zollosingh:['SM','MandA-Learning'], haleblian:['SM','MandA-Learning'], trichterborn:['SM','MandA-Learning'],
   schweizer:['SM','MandA-Serial'], laamanen:['SM','MandA-Serial'],
@@ -1025,14 +1243,26 @@ const DISCIPLINE = {
   riviere:['LS','TransferOfLearning'], lobato:['LS','TransferOfLearning'],
   gourlay:['LS','SECI'], farnese:['LS','SECI'], taylorkroth:['LS','Andragogy'],
   colman:['SM','MandA-Socio'], rouzies:['SM','MandA-Socio'], maynard:['CTX','—'],
-  richey:['LSCM','LSCM-AITech'], scheffer:['CSC','TippingPoint']
+  richey:['LSCM','LSCM-AITech'], scheffer:['CSC','TippingPoint'],
+  // --- SME-context (B1) ---
+  durst:['KM','SME-KM'], thorpe:['KM','SME-KM'], massaro:['KM','SME-KM'], wikstrom:['KM','SME-KM'],
+  eckardt:['WHRD','KnowledgeLoss'], demeulenaere:['WHRD','KnowledgeLoss'], xiao:['WHRD','KnowledgeLoss'], galan:['WHRD','KnowledgeLoss'],
+  kotey:['WHRD','SME-Learning'], kortsch:['WHRD','SME-Learning'], decius:['WHRD','SME-Learning'],
+  arvanitis:['SM','MandA-SME'], gala:['SM','MandA-SME'], weitzel:['SM','MandA-SME'], fabrizio:['SM','SME-Capability'],
+  bernal:['LSCM','LSCM-Workforce'], gekara:['LSCM','LSCM-Workforce'], thai:['LSCM','LSCM-Workforce'],
+  levallet:['KM','SME-KM'], dewah:['KM','SME-KM'],
+  liao:['KM','AbsorptiveCapacity'], gray:['KM','AbsorptiveCapacity'], valentim:['KM','AbsorptiveCapacity'],
+  moilanen:['KM','AbsorptiveCapacity'], muller:['KM','AbsorptiveCapacity']
 };
 const STREAM_LABEL = {
   'MandA-Learning':'M&A · organisational learning', 'MandA-Serial':'M&A · serial acquisition', 'MandA-Socio':'M&A · socio-relational',
   'AuthenticLearning':'Authentic learning', 'Andragogy':'Andragogy', 'GenerativeLearning':'Generative learning', 'Reflection':'Reflection',
   'InstructionalDesign':'Instructional design', 'CognitiveLoad':'Cognitive load', 'TransferOfLearning':'Transfer of learning', 'SECI':'SECI / externalisation',
   'KnowledgeReuse':'Knowledge reuse', 'KnowledgeTransfer':'Knowledge transfer',
-  'LSCM-AITech':'AI in logistics & SCM', 'TippingPoint':'Tipping points / critical transitions', '—':'Context framing'
+  'LSCM-AITech':'AI in logistics & SCM', 'TippingPoint':'Tipping points / critical transitions', '—':'Context framing',
+  'SME-KM':'SME knowledge management', 'KnowledgeLoss':'Turnover-induced knowledge loss', 'SME-Learning':'SME informal learning / HRD',
+  'MandA-SME':'M&A · the SME acquirer', 'SME-Capability':'SME dynamic capability', 'AbsorptiveCapacity':'Absorptive capacity (KM×SM bridge)',
+  'LSCM-Workforce':'Logistics & SCM workforce'
 };
 Object.entries(DISCIPLINE).forEach(([id, arr]) => { const n = NODE_INDEX[id]; if (n){ n.family = arr[0]; n.stream = arr[1]; } });
 
@@ -1062,7 +1292,10 @@ function show(n){
   pMeta.innerHTML = `<span class="rankchip ${cls}">${dots}${n.standing || ''}</span>`
     + `<div class="reglab">${regLabel(n.register || (n.dp ? 'design' : ''))}${n.venue ? ' · ' + n.venue : ''}</div>`
     + (n.family ? `<div class="dislab">${famTag(n)}</div>` : '');
-  pBody.innerHTML = `<p class="ttl">${n.ref} <span class="yr">${n.yr || ''}</span></p><p class="role">${n.role || ''}</p>`;
+  pBody.innerHTML = `<p class="ttl">${n.ref} <span class="yr">${n.yr || ''}</span></p><p class="role">${n.role || ''}</p>`
+    + (n.confidence_code ? `<div class="confcode">Confidence &middot; <b>${n.confidence_code}</b>${n.standpoint ? ' &middot; ' + n.standpoint : ''}${n.horizon === 'A3' ? ' &middot; A3-horizon' : ''}</div>` : '')
+    + (n.prov === 'drawn-not-extracted' ? `<div class="provtag"><span class="pd"></span>reading-grade &middot; drawn-not-extracted &mdash; extract before A3 weight</div>` : '')
+    + (n.tension_flag ? `<div class="tension${n.tension_hard ? ' hard' : ''}"><span class="tlab">${n.tension_hard ? '&#9888; hard flag' : 'tension &middot; carry un-flattened'}</span>${n.tension_flag}</div>` : '');
 }
 function showInstrument(i){
   pMeta.innerHTML = `<span class="rankchip grey">environment-scan</span><div class="reglab">Problem register · grey-lit · ${i.owns}</div>`
@@ -1103,6 +1336,7 @@ function mkNode(n, list){
   const dots = n.dots ? `<span class="rankdots" title="${n.standing || ''}">${dotStr(n.dots)}</span>` : '<span class="rankdots none">○○○○</span>';
   b.innerHTML = `<span class="rk"></span><span class="ref">${n.ref} <span class="yr">${n.yr || ''}</span></span>${dots}`;
   if (n.ft50) b.innerHTML += '<span class="ft50">FT50</span>';
+  if (n.tension_flag) b.innerHTML += `<span class="warn${n.tension_hard ? ' hard' : ''}" title="${n.tension_hard ? 'Hard flag' : 'Tension flag'} — click to read">⚠</span>`;
   const handler = () => { setActive(b); show(n); };
   b.addEventListener('mouseenter', handler);
   b.addEventListener('click', handler);
@@ -1150,6 +1384,31 @@ function renderInstruments(){
 function renderList(hostSel, arr){
   const host = $(hostSel);
   arr.forEach(n => host.appendChild(mkNode(n)));
+}
+
+/* ---------- render: SME-context base, grouped by standpoint (the empty cell) ---------- */
+const STANDPOINTS = [
+  { n:'S-1', label:'SME knowledge management', hint:'retention under-studied', ids:['durst','thorpe','massaro'] },
+  { n:'S-2', label:'Knowledge loss via turnover', hint:'service firms bite hardest', ids:['eckardt','demeulenaere','xiao','galan'] },
+  { n:'S-3', label:'SME informal learning', hint:'no PD function', ids:['kotey','kortsch','decius'] },
+  { n:'S-4', label:'The SME as acquirer', hint:'under-studied', ids:['arvanitis','gala','weitzel'] },
+  { n:'S-5', label:'Freight-forwarder + AU context', hint:'the closest firm-type match', ids:['fabrizio','bernal','gekara','thai'] },
+  { n:'S-6', label:'Necessity + novelty', hint:'the pivot', ids:['wikstrom','levallet','dewah'] },
+  { n:'S-7', label:'Absorptive capacity', hint:'the KM×SM bridge', ids:['liao','gray','valentim','moilanen','muller'] }
+];
+function renderStandpoints(){
+  const host = $('#smeContext');
+  if (!host) return;
+  STANDPOINTS.forEach(sp => {
+    const g = document.createElement('div');
+    g.className = 'sp-group';
+    g.innerHTML = `<div class="sp-head"><span class="sp-n">${sp.n}</span> ${sp.label}${sp.hint ? ` <span class="sp-hint">${sp.hint}</span>` : ''}</div>`;
+    const nd = document.createElement('div');
+    nd.className = 'nodes vert';
+    sp.ids.forEach(id => { const n = NODE_INDEX[id]; if (n) nd.appendChild(mkNode(n)); });
+    g.appendChild(nd);
+    host.appendChild(g);
+  });
 }
 
 /* ---------- render: design register (DP lanes) ---------- */
@@ -1353,7 +1612,7 @@ function renderDiscipline(){
   note.innerHTML = `<b>Read by research literature</b> — the same corpus regrouped by the field each paper comes from. The argument reading is one toggle away under <span class="kx">Layout · Pipeline</span>. The cross-disciplinary story is the lines that <b>span columns</b>: trace <span class="kx">★</span> to watch <b>learning sciences</b> and <b>strategic management</b> converge on the same DP3 design move, and <span class="kx">rich capture lock</span> for learning sciences × knowledge management at DP4.`;
   stack.appendChild(note);
   const row = document.createElement('div'); row.className = 'drow';
-  const papers = [...PROBLEM, ...CRITICAL, ...POSTA3, ...GROUND_ANCHORS];
+  const papers = [...PROBLEM, ...SMECTX, ...CRITICAL, ...POSTA3, ...GROUND_ANCHORS];
   DPS.forEach(dp => dp.nodes.forEach(n => papers.push(n)));
   FAMILY_ORDER.forEach(fk => {
     const fam = FAMILIES[fk];
@@ -1464,6 +1723,7 @@ function boot(){
   renderList('#groundAnchor', GROUND_ANCHORS);
   renderInstruments();
   renderList('#problemNodes', PROBLEM);
+  renderStandpoints();
   renderDesign();
   renderList('#criticalNodes', CRITICAL);
   renderList('#postA3Nodes', POSTA3);
